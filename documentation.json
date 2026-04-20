@@ -19,55 +19,19 @@
             "icon": "rocket",
             "pages": [
               {
-                "title": "Introduction",
-                "path": "introduction",
-                "icon": "home"
+                "title": "Welcome ",
+                "path": "welcome",
+                "badge": "hello!"
               },
               {
-                "title": "Quickstart",
-                "path": "quickstart",
-                "icon": "zap"
+                "title": "Tech Ethos",
+                "path": "technical-ethos",
+                "icon": "plug-zap"
               },
               {
-                "title": "Components",
-                "path": "components",
-                "icon": "code"
-              }
-            ]
-          },
-          {
-            "group": "Components",
-            "icon": "layers",
-            "pages": [
-              {
-                "title": "Images",
-                "path": "components/images",
-                "icon": "image"
-              },
-              {
-                "title": "Cards",
-                "path": "components/cards",
-                "icon": "square"
-              },
-              {
-                "title": "Code",
-                "path": "components/code",
-                "icon": "code"
-              },
-              {
-                "title": "Callouts",
-                "path": "components/callouts",
-                "icon": "message-square"
-              },
-              {
-                "title": "Steps",
-                "path": "components/steps",
-                "icon": "list-ordered"
-              },
-              {
-                "title": "Tabs",
-                "path": "components/tabs",
-                "icon": "columns"
+                "title": "Getting Started",
+                "path": "getting-started",
+                "icon": "code-square"
               }
             ]
           }
