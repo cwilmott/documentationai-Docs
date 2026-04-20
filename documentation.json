@@ -84,7 +84,7 @@
   },
   "title": "Cartographic Representation",
   "description": "Documentation for Cartographic Representation - @BerkeleyGeography and@CalNewMedia",
-  "template": "atlas",
+  "template": "classic",
   "logo-dark": "https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1776704548843-5wdy90efq2x-constellation-svgrepo-com.svg?fm=auto&auto=compress%2Cformat",
   "logo-light": "https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1776704548843-5wdy90efq2x-constellation-svgrepo-com.svg?fm=auto&auto=compress%2Cformat",
   "favicon": "https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1776704548843-5wdy90efq2x-constellation-svgrepo-com.svg?fm=auto&auto=compress%2Cformat"
