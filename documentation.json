@@ -28,10 +28,6 @@
         ]
       },
       {
-        "tab": "Syllabus",
-        "icon": "book"
-      },
-      {
         "tab": "Technical Guides",
         "icon": "code-square",
         "pages": [
@@ -68,6 +64,16 @@
             "icon": "history"
           }
         ]
+      },
+      {
+        "tab": "Syllabus",
+        "pages": [
+          {
+            "title": "Syllabus",
+            "path": "syllabus"
+          }
+        ],
+        "icon": "book-a"
       }
     ],
     "pages": []
