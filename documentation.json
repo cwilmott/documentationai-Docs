@@ -1,11 +1,15 @@
 {
-  "name": "Starter Kit",
+  "name": "Cartographic Representation",
   "colors": {
     "light": {
-      "brand": "#F97316"
+      "brand": "#d97538",
+      "heading": "#1a1a1a",
+      "text": "#374151"
     },
     "dark": {
-      "brand": "#FDBA74"
+      "brand": "#FDBA74",
+      "heading": "#f2f2f2",
+      "text": "#c1c1c1"
     }
   },
   "navigation": {
@@ -77,5 +81,11 @@
       }
     ],
     "pages": []
-  }
+  },
+  "title": "Cartographic Representation",
+  "description": "Documentation for Cartographic Representation - @BerkeleyGeography and@CalNewMedia",
+  "template": "atlas",
+  "logo-dark": "https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1776704548843-5wdy90efq2x-constellation-svgrepo-com.svg?fm=auto&auto=compress%2Cformat",
+  "logo-light": "https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1776704548843-5wdy90efq2x-constellation-svgrepo-com.svg?fm=auto&auto=compress%2Cformat",
+  "favicon": "https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1776704548843-5wdy90efq2x-constellation-svgrepo-com.svg?fm=auto&auto=compress%2Cformat"
 }
