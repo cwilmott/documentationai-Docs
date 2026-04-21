@@ -26,35 +26,178 @@
                 "title": "Welcome ",
                 "path": "welcome",
                 "badge": "hello!"
+              },
+              {
+                "title": "About Me",
+                "path": "about-me",
+                "icon": "lucide-person-standing"
               }
             ]
           }
         ]
       },
       {
+        "tab": "Class Guides",
+        "pages": [
+          {
+            "title": "Before Class Starts",
+            "path": "before-class-starts"
+          },
+          {
+            "title": "Syllabus",
+            "path": "syllabus"
+          },
+          {
+            "group": "Class Guides",
+            "pages": [
+              {
+                "group": "Cartographic Theory",
+                "pages": [
+                  {
+                    "title": "Mapping",
+                    "path": "mapping"
+                  },
+                  {
+                    "title": "Historical + Critical Cartography",
+                    "path": "historical-critical-cartography"
+                  },
+                  {
+                    "title": "Classification and Calculation",
+                    "path": "classification-and-calculation"
+                  }
+                ],
+                "icon": "book-open-text"
+              },
+              {
+                "group": "Print Cartography",
+                "pages": [
+                  {
+                    "title": "Data 1",
+                    "path": "data-1"
+                  },
+                  {
+                    "title": "Projection + Composition",
+                    "path": "projection-composition"
+                  },
+                  {
+                    "title": "Design",
+                    "path": "design-cartographic-elements"
+                  }
+                ],
+                "icon": "lucide-printer"
+              },
+              {
+                "group": "Web Cartography",
+                "pages": [
+                  {
+                    "title": "Data II",
+                    "path": "data-ii"
+                  },
+                  {
+                    "title": "Color + Type",
+                    "path": "color-type"
+                  },
+                  {
+                    "title": "Interaction",
+                    "path": "interaction"
+                  }
+                ],
+                "icon": "globe"
+              },
+              {
+                "group": "Cartographic Studio",
+                "pages": [],
+                "icon": "lucide-palette"
+              }
+            ]
+          }
+        ],
+        "icon": "book-open"
+      },
+      {
         "tab": "Technical Guides",
         "icon": "code-square",
         "pages": [
-          {
-            "title": "Getting Started",
-            "path": "getting-started",
-            "icon": "code-square"
-          },
           {
             "title": "Tech Ethos",
             "path": "technical-ethos",
             "icon": "plug-zap"
           },
           {
+            "title": "Getting Started",
+            "path": "getting-started",
+            "icon": "download"
+          },
+          {
             "group": "Guides",
-            "icon": "book-open",
+            "icon": "code-square",
             "expandable": false,
             "pages": [
               {
-                "title": "Create Your First Page",
-                "path": "help-center/guides/setup-project"
+                "group": "Cartographic Theory",
+                "pages": [
+                  {
+                    "title": "Finding Your Map",
+                    "path": "cartographic-research-exercise"
+                  },
+                  {
+                    "title": "Reading Your Map",
+                    "path": "reading-your-map"
+                  },
+                  {
+                    "title": "Annotating Your Map",
+                    "path": "annotating-your-map"
+                  }
+                ],
+                "icon": "lightbulb"
+              },
+              {
+                "group": "Print Map",
+                "pages": [
+                  {
+                    "title": "Data, Attributes + Context",
+                    "path": "data-attributes"
+                  },
+                  {
+                    "title": "Layout + Perspective",
+                    "path": "layout-perspective"
+                  },
+                  {
+                    "title": "Design + Explanation",
+                    "path": "design-explanation"
+                  }
+                ],
+                "icon": "lucide-printer"
+              },
+              {
+                "group": "Web Map",
+                "pages": [
+                  {
+                    "title": "GeoJSON + Data Storage",
+                    "path": "geojson-data-storage"
+                  },
+                  {
+                    "title": "Custom Web Maps",
+                    "path": "custom-web-maps"
+                  },
+                  {
+                    "title": "Interactivity + Pop-ups",
+                    "path": "interactivity-pop-ups"
+                  }
+                ],
+                "icon": "globe"
+              },
+              {
+                "group": "Skills Building",
+                "pages": [],
+                "icon": "lucide-timer"
               }
             ]
+          },
+          {
+            "title": "Troubleshooting",
+            "path": "troubleshooting",
+            "icon": "alert-triangle-icon"
           }
         ]
       },
@@ -63,21 +206,12 @@
         "icon": "lucide-circle-question-mark",
         "pages": [
           {
-            "title": "Changelog",
-            "path": "changelog",
-            "icon": "history"
-          }
-        ]
-      },
-      {
-        "tab": "Syllabus",
-        "pages": [
-          {
-            "title": "Syllabus",
-            "path": "syllabus"
+            "title": "FAQ",
+            "path": "faq",
+            "icon": "circle-question-mark"
           }
         ],
-        "icon": "book-a"
+        "path": "help-center"
       }
     ],
     "pages": []
