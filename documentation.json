@@ -212,6 +212,17 @@
           }
         ],
         "path": "help-center"
+      },
+      {
+        "tab": "Assessments",
+        "pages": [
+          {
+            "title": "Cartographic Interpretation",
+            "path": "cartographic-interpretation",
+            "icon": "lucide-file-pen-line"
+          }
+        ],
+        "icon": "graduation-cap"
       }
     ],
     "pages": []
