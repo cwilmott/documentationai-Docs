@@ -220,6 +220,11 @@
             "title": "Cartographic Interpretation",
             "path": "cartographic-interpretation",
             "icon": "lucide-file-pen-line"
+          },
+          {
+            "title": "Print Map",
+            "path": "print-map",
+            "icon": "lucide-printer"
           }
         ],
         "icon": "graduation-cap"
