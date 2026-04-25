@@ -1,0 +1,116 @@
+---
+title: Layout + Styling
+description: Beginning the process of laying out a page
+---
+## Laying out a page
+
+Composition is one of the most important aspects of a map - but also one of the most tricky. You need to think about it from the very beginning, but you often don't know if it will work until the very end.&#x20;
+
+Start by downloading, and filling out this worksheet based on your data decisions in the last tutorial.
+
+<Card title="Laying out a page" href="https://drive.google.com/file/d/1dwQx37bt5L6Kju2rtbX2Qvb2hejWURHu/view?usp=drive_link" icon="download" cta="Download worksheet here" horizontal="false" target="_self">
+  This worksheet helps you think about what elements you need for your print map.
+</Card>
+
+## Projection
+
+One of the biggest flaws of ArcGIS online is that you can't change the map projection easily. If you are doing this, it is far far better to do it on ArcGIS Pro or ArcGIS Online.
+
+For these maps, you do not need to change the projection because the scale is so large it barely makes a difference. However, if you were making a map of *all* the parks, for instance, you would need to use a projection which adequately captures California.&#x20;
+
+If you would like to change your projection using ArcGIS Online, this video shows you how to do it.
+
+<Card title="Changing Projection in ArcGIS Online" href="https://www.youtube.com/watch?v=417qXZ2_Mtc" icon="lucide-map" cta="Click here for the tutorial" horizontal="false" target="_self">
+  This tutorial shows you how to change the map projection in ArcGIS Online from Web Mercator to the National Projection of Canada.&#x20;
+</Card>
+
+## Style Your Data
+
+The limits to designing, composing and styling geographic information on GIS systems is one of the *key&#x20;*&#x72;easons cartographers use vector illustration software, like Illustrator. At the same time, *we need to get that data from somewhere*. This week is all about the in-between zone where you are styling information *as best you can* in GIS while preparing it for illustrator.
+
+<Callout kind="tip" collapsed="false">
+  Your map will be exported into an .svg format ready for Illustrator at the end of this tutorial. Don't worry if you can't get ArcGIS to do what you want - fixing things in Illustrator is the domain of the cartographer!
+</Callout>
+
+### The Properties sidebar
+
+When you click on your feature layer, a side bar appears on the right. You can style your data here.&#x20;
+
+Different kinds of data will have different options for styling - a point might have a symbol, while a polygon might have a fill color. You can also color features according to their numeric or categorical attributes (i.e. all features with the category "closed" are red; all features which have a value between 100 and 250 are green.
+
+<Tabs>
+  <Tab title="Locations">
+    Locations are in **point**, **line** and **polygon** format, and tend to be styled as **shapes** or **symbols**.&#x20;
+
+    **Shapes** have: a fill color, an outline color, a fill transparency, an outline transparency, an outline width, a fill pattern, an outline pattern.
+
+    **Symbols** are either small raster or vector objects which may or may not have: transparency and color options.
+
+    Read more <a href="https://doc.arcgis.com/en/arcgis-online/create-maps/style-location-mv.htm" target="_blank" rel="noopener noreferrer">here</a>
+  </Tab>
+
+  <Tab title="Number">
+    **Number** refers to quantitative values which are attributes of your feature data. They might be individual numbers, or have ranges or other calculated fields (like min or max).
+
+    **Numbers** can be used to style: **color**, **symbol, size**, **transparency**
+
+    Read more <a href="https://doc.arcgis.com/en/arcgis-online/create-maps/style-numbers-mv.htm#ESRI_SECTION1_5746532688614A4C805AACCBFE18BD0C" target="_blank" rel="noopener noreferrer">here</a>&#x20;
+
+    My advice is to play around and see what you can do, but you can also learn more about styling your map data here:
+  </Tab>
+
+  <Tab title="Categories">
+    Categories are qualitative descriptions of data (like park or road).
+
+    Categories can be styled according to: **color, symbol, transparency, size&#x20;**(but this is less meaningful).
+
+    Read more <a href="https://doc.arcgis.com/en/arcgis-online/create-maps/style-categories-mv.htm" target="_blank" rel="noopener noreferrer">here</a>
+  </Tab>
+</Tabs>
+
+My advice is to just play around with the styling options to see what they can do, and trust your instincts about what looks good.
+
+<Card title="Styling your map on ArcGIS Online" href="https://doc.arcgis.com/en/arcgis-online/create-maps/apply-styles-mv.htm" icon="globe2" cta="Click here to learn more" horizontal="false" target="_self">
+  The official guide on styling your geographic data using ArcGIS online
+</Card>
+
+### Labelling
+
+No-one I have ever met loves doing labelling on GIS software. You *can* mess around with the label feature layers by changing fonts.
+
+Again, play around and see what you can do - and don't worry if it doesn't work. We can fix it in Illustrator.
+
+## Download your map
+
+The next stage is to download your map.
+
+<Steps>
+  <Step title="Go to &#x22;Print&#x22;" title-type="p">
+    On the left sidebar, select **Print**
+  </Step>
+
+  <Step title="Choose size" title-type="p">
+    Choose the **file size** for your map that you think you will need (you can adjust this in Illustrator, but it's a little tricky).
+  </Step>
+
+  <Step title="Choose format" title-type="p">
+    In the **Format** dropdown, choose **.svg**&#x20;
+  </Step>
+
+  <Step title="Add Elements" title-type="p">
+    In **Advanced Options** you can choose to add elements such as a scale bar or a north arrow. These are useful to keep the direction and scale so you can rescale later in Illustrator.
+  </Step>
+
+  <Step title="Export" title-type="p">
+    Now click **Export**.&#x20;
+  </Step>
+
+  <Step title="Save" title-type="p">
+    Save your .svg folder, alongside your completed form on your Google Drive for submission.
+  </Step>
+</Steps>
+
+<Card title="Assessment Submission" href="https://forms.gle/3kAqCZx2Aq4kRXrQ6" icon="upload-icon" cta="Upload your assessment here" horizontal="false" target="_self">
+  Choose "XXXX" from the multiple choice drop down menu.
+</Card>
+

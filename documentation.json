@@ -72,8 +72,8 @@
                 "group": "Print Cartography",
                 "pages": [
                   {
-                    "title": "Data 1",
-                    "path": "data-1"
+                    "title": "Data I",
+                    "path": "data-i"
                   },
                   {
                     "title": "Projection + Composition",
@@ -156,11 +156,11 @@
                 "pages": [
                   {
                     "title": "Data, Attributes + Context",
-                    "path": "data-attributes"
+                    "path": "data-1-exercise"
                   },
                   {
-                    "title": "Layout + Perspective",
-                    "path": "layout-perspective"
+                    "title": "Layout + Styling",
+                    "path": "projection-composition-exercise"
                   },
                   {
                     "title": "Design + Explanation",

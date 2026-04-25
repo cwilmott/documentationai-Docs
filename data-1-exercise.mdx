@@ -1,0 +1,192 @@
+---
+title: 'Data, Attributes + Context'
+description: 'Finding, adding and uploading data'
+---
+## Setting up ArcGIS
+
+We will be using ArcGIS Online for the majority of data processing for this class. 
+
+ArcGIS Online is accessed via a web browser. 
+
+<Callout kind="info" collapsed="false">
+  It is more ideal to use either ArcGIS Pro (Windows) or QGIS (Mac or Windows) for this kind of workflow, but I can't guarantee that it would work on your home computers. If you have taken a GIS course and can work the software, feel free to use these platforms instead. Both can export to SVG, which is where we will end up in the end.
+</Callout>
+
+<Steps>
+  <Step title="Go to ArcGIS Online" title-type="p">
+    Go to [<a href="https://www.arcgis.com/index.html" target="_blank" rel="noopener noreferrer">https://www.arcgis.com/index.html</a>](https://www.arcgis.com/index.html) and select "Sign In".
+  </Step>
+
+  <Step title="Sign In" title-type="p">
+    Choose "Your ArcGIS organization's URL" and write in "cal".&#x20;
+
+    Click "Continue".
+
+    <Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777062009572-uaoyj1e9gd-pasted-image-1777062007139.png?fm=auto&auto=compress%2Cformat" width="1076" height="1192" alt="" />
+  </Step>
+
+  <Step title="Sign In Using Your Cal Credentials" title-type="p">
+    Sign into ArcGIS using your UC Berkeley Credentials
+  </Step>
+
+  <Step title="Have a look around" title-type="p">
+    Select the different tab headings - Content, Map, Groups etc... - and have a look at the platform to get a feel for it.&#x20;
+  </Step>
+</Steps>
+
+## Uploading Data
+
+To add data to ArcGIS is fairly easy - and it will accept most data formats.
+
+### Determine your data format.
+
+Firstly, download the data saved in this Google folder. This is what we have been given by State Parks.
+
+<Card title="State Parks Data Folder" icon="folder-closed-icon" horizontal="false" target="_self">
+  This is where you can find the materials given to us by State Parks.
+</Card>
+
+&#x20;
+
+Now, take a look at the files inside. What kind of extensions do you see on the files - can you tell which ones are geographic data, and which ones are other kinds of data?
+
+### Add your data to ArcGIS Online
+
+Now, we need to add our data to ArcGIS Online.
+
+<Steps>
+  <Step title="Navigate to Content" title-type="p">
+    <Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777062913753-o28pcl3mwu-pasted-image-1777062911726.png?fm=auto&auto=compress%2Cformat" width="2400" height="624" alt="" />
+
+    Navigate to **Content** on the top navigation bar.
+  </Step>
+
+  <Step title="Select New Item" title-type="p">
+    <Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777063008032-lb555vds69-pasted-image-1777063006368.png?fm=auto&auto=compress%2Cformat" width="2400" height="420" alt="" />
+
+    Select "**New Item"**  on the top right.&#x20;
+  </Step>
+
+  <Step title="Add Data " title-type="p">
+    **Drag and drop** your GeoJSON files into the box.
+  </Step>
+
+  <Step title="Convert to Hosted Feature Layer" title-type="p">
+    When prompted, choose **Hosted Feature Layer&#x20;**&#x61;s your option.&#x20;
+  </Step>
+</Steps>
+
+### Add your data to the map.
+
+Now, we need to add the data to the map. Again, it's very easy. 
+
+Most GIS systems operate on a system of layers - each layer is a different dataset. 
+
+<Steps>
+  <Step title="Select &#x22;Map&#x22;" title-type="p">
+    Now, select **Map&#x20;**&#x66;rom the top navigational bar.&#x20;
+
+    This should open up a blank map.
+  </Step>
+
+  <Step title="Add a new layer" icon="layers" title-type="p">
+    In the sidebar, click the **Layer** symbol, and select **Add&#x20;**-> **Browse Layers**
+  </Step>
+
+  <Step title="Select your layer" title-type="p">
+    Navigate to find your data, click **YOUR HOSTED FEATURE LAYER -> Add to map**.
+  </Step>
+
+  <Step title="Check it worked" title-type="p">
+    Navigate back to your map and check that the data has appeared on the map.
+  </Step>
+
+  <Step title="Name and Save Your Map" title-type="p">
+    On the top left is a note that says "Untitled Map". Click it and rename your map and click save.&#x20;
+  </Step>
+</Steps>
+
+## Adding contextual data
+
+### Find your site
+
+You've each been assigned a specific site to map for this project.&#x20;
+
+**Locate your site and zoom to the area.&#xA0;**
+
+### Think about your base map.
+
+One of the issues that we, as cartographers, solve is the issue of contextual data. Contextual data helps frame the information on the map, and explain it in a visual and spatial way - this might be rivers for water activities, or mountains for skiing.
+
+Unfortunately, the base map doesn't always show the information we want - and sometimes it shows information we don't want. We can use GIS to build out a new data set that we can use in our print maps.
+
+This means being intentional about what you want *on&#x20;*&#x74;he map - do you want rivers, forests, roads? Where might you find this data?
+
+Click o&#x6E;**&#x20;Basemap** on the sidebar on the left and look through the base maps. Is there one you like best?
+
+<Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777077825016-bl5ebars0ej-pasted-image-1777077822952.png?fm=auto&auto=compress%2Cformat" width="882" height="703" alt="" />
+
+### See what is on your basemap
+
+Once you've chosen a basemap, if you click o&#x6E;**&#x20;Basemap**, then at the top of the pop-out bar,**&#x20;Current Basemap**, it will show you what layers your basemap is using.
+
+<Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777078691227-qspcp2qvif-pasted-image-1777078689172.png?fm=auto&auto=compress%2Cformat" width="664" height="828" alt="" />
+
+**You can turn these layers off and on, or even add your own data.**
+
+### Research your site
+
+Now, go onto the internet and research your site. What does it look like, what kind of environment and landscape is it? What kind of story is the agency attempting to tell? Is there any information which might help tell that story? This might include:
+
+- The names of local human settlements, past and present
+
+- Environmental features such as mountain ranges, forests or rivers
+
+- Geopolitical features such as countries, states, counties, and cities
+
+- Labels for rivers, or other natural features
+
+- Historical data about historical social and environmental processes?
+
+### Source your Data
+
+<Expandable title="A note about ArcGIS and data sources" default-open="true">
+  One of the reasons ArcGIS is not free is because they offer a lot of data to their users in ways which - we will learn - are very easy to access. This does NOT mean this data is inaccessible in other formats, it might just take a bit longer to find. You can look for sources such as the USGS, NOAA, NASA, OSM and other organisations to find data to help contextualise your map.
+</Expandable>
+
+Once you've established the different ways a base map could look, and now that you have thought a little more about your site and what information it needs, we can start adding extra data to your map.
+
+<Steps>
+  <Step title="Find the Living Atlas" title-type="p">
+    Go to **Basemap -> Current Basemap -> Add (Layers)**
+
+    Then click on **Content** and from the drop down menu, select **Living Atlas**
+  </Step>
+
+  <Step title="Explore the Living Atlas" title-type="p">
+    This is a collection of data uploaded to ESRI by different mapping agencies.&#x20;
+
+    Using the **Search Bar**, look for different layers which might have the information you need.
+  </Step>
+
+  <Step title="Add Living Atlas Layers" title-type="p">
+    Once you've found a layer you'd like to use, click **Add&#x20;**&#x74;o add that feature layer to the map.
+  </Step>
+
+  <Step title="Repeat" title-type="p">
+    Repeat these steps until you have the data you would like on your basemap.
+  </Step>
+
+  <Step title="New Step" title-type="p">
+    ##
+  </Step>
+</Steps>
+
+<Callout kind="danger" collapsed="false">
+  Your thoughtfulness in selecting contextual data (both in terms of thinking expansively, but also being restrained) is one of the key elements of your grade for Assessment 2: Print Map.
+</Callout>
+
+<Card title="Assessment Submission" href="https://forms.gle/3kAqCZx2Aq4kRXrQ6" icon="upload" cta="Upload your Assessment here" horizontal="false" target="_self">
+  Choose **Data I (Formative)&#x20;**&#x66;rom the multiple choice drop down menu&#x20;
+</Card>
+
