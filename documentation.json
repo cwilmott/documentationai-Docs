@@ -228,6 +228,33 @@
           }
         ],
         "icon": "graduation-cap"
+      },
+      {
+        "tab": "The Reexamining Our Past Project",
+        "pages": [
+          {
+            "title": "The Project",
+            "path": "the-project"
+          },
+          {
+            "title": "Before You Start Emailing",
+            "path": "professional-workspace",
+            "icon": "alert-circle"
+          },
+          {
+            "title": "Client-Facing Work",
+            "path": "client-facing-work"
+          },
+          {
+            "title": "Working In Teams",
+            "path": "working-in-teams"
+          },
+          {
+            "title": "Offboard Checklist",
+            "path": "outboard-checklist"
+          }
+        ],
+        "icon": "clipboard"
       }
     ],
     "pages": []
