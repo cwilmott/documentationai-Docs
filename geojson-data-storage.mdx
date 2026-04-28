@@ -1,0 +1,368 @@
+---
+title: GeoJSON + Data Storage
+description: Basics of web information
+---
+Now we are going to move onto **Web Mapping**. Web Mapping is a combination of data visualization and cartography, so we are going to start by making our own data, then move on from there. It's a bit like this:
+
+<Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777348170825-7yahro754k5-pasted-image-1777348169171.png?fm=auto&auto=compress%2Cformat" width="1622" height="1119" alt="" />
+
+As such, this exercise asks you to:
+
+- annotate geoJSON data with links to images and other attributes
+
+- set up Github as a host for this data, and your future web map.
+
+We will be using `geoJSON` as the key data format.
+
+---
+
+## About GeoJSON
+
+Take a look at the diagram below to get a better understanding of GeoJSON.
+
+<Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777393663679-pxkly1i1t4a-about_geojson.png?fm=auto&auto=compress%2Cformat" width="1402" height="1122" alt="" />
+
+What it does is allow us to link specific locations or geometry with other elements such as text or numbers. We can also include other web-based elements like images, audio or video clips by uploading them to the web, and adding the link to the file in the GeoJSON.
+
+---
+
+## Key Terms
+
+**GeoJSON&#x20;**&#x20;is a file type based on JSON (javascript object notation), which is specifically built for web-based applications.
+
+**Geometry** is the coordinates of your data - the *where*
+
+**Properties or Attributes** is the information *about* your location, or the links to other materials.
+
+**Assets&#x20;**&#x61;re the other materials you might want to include.
+
+---
+
+## File Structures
+
+This is boring, but important. When we are working together on our collaborative project, file structures are the single weakest point in transferring projects from one place to another. **File structures are how you organise your code, data and other assets.**
+
+Most web map file structures look generally like this:
+
+```typescript
+my-web-map/
+│
+├── index.html              # Main webpage
+│
+├── css/
+│   └── styles.css          # Layout + map styling
+│
+├── js/
+│   └── script.js              # Map logic, data loading, interaction
+│
+├── data/
+│   └── data.geojson      # Geographic data with attributes
+│
+├── assets/
+│   ├── icons/              # Marker icons or symbols
+│   └── images/             # Photos, logos, legends
+│
+└── README.md               # Documentation
+```
+
+This is a website, with four folders - **css/**, **js/**, **data/**, **assets/** - and in the main top level folder, an **index.html&#x20;**&#x61;nd a <a href="http://README.md" target="_blank" rel="noopener noreferrer">README.md</a> page.&#x20;
+
+<Callout kind="tip" collapsed="false">
+  If a file ends in / (i.e. icons/) this means that it is a **folder**. If it has a file extension, like .html, .md, .geojson or .png this means that it is a **file**. Look at the file structure above - can you tell the folders vs the files?
+</Callout>
+
+We will be setting up the **data side** of our web project today: &#x20;
+
+```typescript
+my-web-map/
+│
+├── data/
+│   └── data.geojson      # Geographic data with attributes
+│
+├── assets/
+│   └── images/             # Photos, logos, legends
+│
+└── README.md               # Documentation
+```
+
+This includes the basic README.md, a folder called **data/*****&#x20;***&#x77;here we will put our **data.geojson&#x20;**&#x66;ile, and a folder called **assets/** with two sub folders: **icons/** and **images/** where we will put our images.&#x20;
+
+We will be using **Github**, which doesn't make it easy to set up a file structure. They generally expect you to do this on your laptop and *push* that structure to Git via the terminal, but we want to be doing something a little simpler, which also means a little backwards.
+
+<Callout kind="info" collapsed="false">
+  If you are familiar with desktop development (and dev servers), code editors like VS code and pushing to Git, you are more than welcome to do it that way. The reason we don't is because I cannot be certain that everyone will have the right packages installed or that their computers can do it - so we're staying in browser for now.
+</Callout>
+
+## Set Up Your Github
+
+We need somewhere to put your data and assets! Github is a free (within reason) repository where we can put code and share it with other people - one of the cornerstones of open source (for free) software development. It has the added bonus of also being a web-publisher, where we can actually host relatively sophisticated websites.
+
+### **Sign Up to Github (or login if you have already)**
+
+<Steps>
+  <Step title="Navigate to Github" title-type="p">
+    In your browser, create a new window or tab and navigate to [<a href="https://github.com/" target="_blank" rel="noopener noreferrer">https://github.com/</a>](https://github.com/)
+  </Step>
+
+  <Step title="Sign Up" title-type="p">
+    On the top-right of the page, select <a href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github" target="_blank" rel="noopener noreferrer">**Sign Up**</a>
+
+    Use your Berkeley credentials.&#x20;
+  </Step>
+</Steps>
+
+### Set Up A New Repository
+
+Now we need to set up a new project, or repository for our files.
+
+<Steps>
+  <Step title="Click New Repository" title-type="p">
+    In the upper-right corner of any page, select, then click New Repository.&#x20;
+
+    <Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777348902467-yub76le88u-pasted-image-1777348900512.png?fm=auto&auto=compress%2Cformat" width="732" height="516" alt="" />
+  </Step>
+
+  <Step title="Name Your Repository" title-type="p">
+    In the "Repository name" box, type **ROP**
+  </Step>
+
+  <Step title="Set the description" title-type="p">
+    In the "Description" box, type a short description. For example, type "This repository is for N183 ROP project @UC Berkeley".
+  </Step>
+
+  <Step title="Make your repository public" title-type="p">
+    Select **Public** for your repository&#x20;
+  </Step>
+
+  <Step title="Add a ReadMe file" title-type="p">
+    Select **Add a README.md file**. README files create a basic home page for your website using markdown, as well as being a space to explain your code to other people.&#x20;
+  </Step>
+
+  <Step title="Create Repository" title-type="p">
+    Click **Create repository**
+  </Step>
+</Steps>
+
+### Add Your Images + Assets
+
+Now that you have your Github account up and running, we need to create a basic file structure to house your data. It's not hard.&#x20;
+
+So far, you should only see one file listed in the repository, the `README.md` file you created when you initialized the repository. Now, we'll make some new folders to hold your assets.
+
+Things are a bit backward with Github, so we start with uploading an image, then we will make the file structure after.&#x20;
+
+<Callout kind="danger" collapsed="false">
+  All your image files should have sensible, short names with no spaces and end in the appropriate file extension.&#x20;
+
+  For example: sue\_meg\_signage\_new\.jpg
+</Callout>
+
+<Steps>
+  <Step title="Select Upload File" title-type="p">
+    Go to your repository on Github, and to the right of the page, select the **Upload File** dropdown menu.\\
+
+    <Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777394836235-ihu7lhdpn5-pasted-image-1777394833366.png?fm=auto&auto=compress%2Cformat" width="1440" height="252" alt="" />
+  </Step>
+
+  <Step title="Add an image" title-type="p">
+    Drag an image into the space to upload.&#x20;
+
+    <Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777394932511-vkuum3yrun8-pasted-image-1777394930794.png?fm=auto&auto=compress%2Cformat" width="660" height="254" alt="" />
+  </Step>
+
+  <Step title="Commit" title-type="p">
+    At the bottom of the page, under "Commit changes", select **Commit directly to the main branch**, then click **Commit changes&#x20;**
+  </Step>
+</Steps>
+
+### Create a File Structure
+
+We don't want this image to be in the main section because it's untidy (and you might end up with many more images and your data files!), so we want to make a new folder.
+
+<Steps>
+  <Step title="Select your image" title-type="p">
+    To do this, you need to select your image that you just uploaded.
+  </Step>
+
+  <Step title="Select Edit" title-type="p">
+    Then, select the "Edit" icon to edit this file.
+
+    <Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777349816500-m9g78caw6vp-pasted-image-1777349814057.png?fm=auto&auto=compress%2Cformat" width="1406" height="448" alt="" />
+  </Step>
+
+  <Step title="Locate the File Structure Bar" title-type="p">
+    Then, locate the file structure bar at the top.
+  </Step>
+
+  <Step title="Add /assets/images" title-type="p">
+    Copy and paste (or write directly) `assets/images/` into the file structure bar in front of your image name. In my experience, this is the part where students have the most trouble because it is so literal.&#x20;
+
+    Your file structure will end up looking like this: `rop/assets/images/YOUR_IMAGE.jpg`
+
+    <Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777349909864-srbrzwuyzu-pasted-image-1777349907962.png?fm=auto&auto=compress%2Cformat" width="2776" height="782" alt="" />
+  </Step>
+
+  <Step title="Upload the rest of your images" title-type="p">
+    Now that you have an images folder, upload the rest of your images to the `assets/images/` folder.&#x20;
+  </Step>
+</Steps>
+
+## Create Your GeoJSON
+
+Now that we have our image files already hosted somewhere we can see it, let's set up&#x20;
+
+### Examine Your Data
+
+<Steps>
+  <Step title="Locate your GeoJSON" title-type="p">
+    Go to your Google Drive folder, and find the data you uploaded to ArcGIS last week.&#x20;
+  </Step>
+
+  <Step title="Go to geojson.io" title-type="p">
+    Go to [<a href="https://geojson.io" target="_blank" rel="noopener noreferrer">https://geojson.io</a>](https://geojson.io)&#x20;
+  </Step>
+
+  <Step title="Upload your data" title-type="p">
+    Upload your geoJSON file to <a href="http://geojson.io" target="_blank" rel="noopener noreferrer">geojson.io</a>&#x20;
+  </Step>
+</Steps>
+
+### Add Attributes
+
+Now, we need to add in some attribute data to describe the points, and link them to other assets.
+
+<Steps>
+  <Step title="Select &#x22;Table&#x22;" title-type="p">
+    Select the tab on the right-hand side which says **Table**.
+  </Step>
+
+  <Step title="Select &#x22;New Column&#x22;" title-type="p">
+    Then select **new column&#x20;**
+  </Step>
+
+  <Step title="Create Image Link column" title-type="p">
+    In the column name write "image\_link"
+  </Step>
+
+  <Step title="Add Alt Text" title-type="p">
+    Repeat the New Column steps to add another column for "alt-text" . This is an accessibility requirement where you describe the image for a screen reader.
+  </Step>
+
+  <Step title="Add other columns" title-type="p">
+    Add the following columns (if they aren't there already):
+
+    - title
+
+    - description&#x20;
+
+    - image caption
+  </Step>
+</Steps>
+
+<Callout kind="tip" collapsed="false">
+  You can actually do this as a .csv file in Google Sheets, then you just Download as .csv and upload to <a href="http://geojson.io" target="_blank" rel="noopener noreferrer">geojson.io</a> and download again as geojson.&#x20;
+</Callout>
+
+<Callout kind="danger" collapsed="false">
+  Don't forget to save periodically to avoid losing your work. <a href="http://geojson.io" target="_blank" rel="noopener noreferrer">geojson.io</a> has become finicky recently, but we haven't found a better replacement. To do this choose *Save > geoJSON*.&#x20;
+</Callout>
+
+### Add image links
+
+There are two kinds of links on the web: **absolute** and **relative**.&#x20;
+
+An **absolute path or link** would link to where the file is in the whole file structure (i.e. would be the link to the image itself in your repository). This is great and the most stable option **where the location of your file will not change.&#x20;**&#x41;n absolute link looks like this: `https://www.parks.ca.gov/pages/712/images/SpanishFlatGoldMiners_circa%201852_CourtesyCA%20StateLibrary.JPG`
+
+A **relative path or link**\*\*\* \*\*\*is a path described in relation to your file structure - specifically, where your geojson file is and where your image is. This is the best way to package up everything together **so your project can be moved from one place to another without breaking the code**. A relative link would look like this: `assets/images/tilden.jpg, `eventually deployed from an` index.html a`t the same level as the` README.md`
+
+<Callout kind="alert" collapsed="false">
+  Normally I'd ask you to use absolute links because it is easier. But since we will be working on a collaborative project, which eventually may be shipped over to State Parks, I'd like you to practice doing relative links.
+</Callout>
+
+<Steps>
+  <Step title="Find your image on Github" title-type="p">
+    In another tab, return to Github and find an image you'd like for the site.&#x20;
+  </Step>
+
+  <Step title="Determine the relative path" title-type="p">
+    Look at the path for your image (where you originally made the folder). It should say `rop/assets/images/YOUR_IMAGE.jpg` or similar. Without the `rop/` this is the relative path.
+  </Step>
+
+  <Step title="Type or Paste as Attribute" title-type="p">
+    Type or paste this path as an attribute for your image in your table. If you flick back to the geojson version it should look something like this:
+
+    `{`
+
+    `  "type": "Feature",`
+
+    `  "geometry": {`
+
+    `    "type": "Point",`
+
+    `    "coordinates": [-122.241, 37.881]`
+
+    `  },`
+
+    `  "properties": {`
+
+    `    "name": "Tilden Regional Park",`
+
+    `    "type": "Park",`
+
+    `    "image": "assets/images/tilden.jpg"`
+
+    `  }`
+
+    `}`
+  </Step>
+
+  <Step title="Rinse and repeat for all the columns" title-type="p">
+    Now, continue until you've filled out all the columns for the site.&#x20;
+  </Step>
+</Steps>
+
+### Export as geoJSON
+
+When you're done, you're ready to export your GeoJSON for the final time.
+
+Go to **Save** and choose **geoJSON**
+
+Find the location of the *last* geojson you saved, and rename it `rop_YOURSITE.geojson`. Don't close the folder.
+
+## Add your data to GitHub
+
+Now, just like you did for your images, you need to add your geojson data to your github repository.
+
+Your folder structure should look like this for your data:
+
+```typescript
+my-web-map/
+│
+├── data/
+    └── data.geojson      # Geographic data with attributes
+```
+
+And it should look like this overall:
+
+```typescript
+my-web-map/
+│
+├── data/
+│   └── data.geojson      # Geographic data with attributes
+│
+├── assets/
+│   └── images/             # Photos, logos, legends
+│         └── image.png     # your images
+└── README.md               # Documentation
+```
+
+I want you to see if you can remember (or figure out) how to upload your `.geojson` file, and put it inside a `/data` folder so that it looks like this.
+
+<Callout kind="success" collapsed="false">
+  Once you've done that, you're ready to complete the assessment!
+</Callout>
+
+<Card title="Assessment: Link to your Github Repo" href="https://forms.gle/3kAqCZx2Aq4kRXrQ6" icon="upload-icon" cta="Upload your assessment here" horizontal="false" target="_self">
+  Complete the form here with a link to your Github Repository so I can check your structure!&#x20;
+</Card>
+

@@ -106,7 +106,40 @@
               },
               {
                 "group": "Cartographic Studio",
-                "pages": [],
+                "pages": [
+                  {
+                    "title": "Community Data",
+                    "path": "community-data"
+                  },
+                  {
+                    "title": "Raster + DEMs",
+                    "path": "raster-dems"
+                  },
+                  {
+                    "title": "Texture + Tile",
+                    "path": "texture-tile"
+                  },
+                  {
+                    "title": "Typography + Stroke",
+                    "path": "typography-stroke"
+                  },
+                  {
+                    "title": "Topography",
+                    "path": "topography"
+                  },
+                  {
+                    "title": "Story",
+                    "path": "story"
+                  },
+                  {
+                    "title": "Pop-up",
+                    "path": "pop-up"
+                  },
+                  {
+                    "title": "Neatline/Cartouche",
+                    "path": "neatline/cartouche"
+                  }
+                ],
                 "icon": "lucide-palette"
               }
             ]
@@ -137,7 +170,7 @@
                 "group": "Cartographic Theory",
                 "pages": [
                   {
-                    "title": "Finding Your Map",
+                    "title": "Finding A Map",
                     "path": "cartographic-research-exercise"
                   },
                   {
@@ -155,7 +188,7 @@
                 "group": "Print Map",
                 "pages": [
                   {
-                    "title": "Data, Attributes + Context",
+                    "title": "GeoData and Attributes",
                     "path": "data-1-exercise"
                   },
                   {
