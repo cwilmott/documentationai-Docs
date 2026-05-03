@@ -112,6 +112,10 @@
                     "path": "community-data"
                   },
                   {
+                    "title": "Story",
+                    "path": "story"
+                  },
+                  {
                     "title": "Raster + DEMs",
                     "path": "raster-dems"
                   },
@@ -126,10 +130,6 @@
                   {
                     "title": "Topography",
                     "path": "topography"
-                  },
-                  {
-                    "title": "Story",
-                    "path": "story"
                   },
                   {
                     "title": "Pop-up",
