@@ -1,5 +1,5 @@
 ---
-title: Web Map
+title: Interactivity + Popups
 description: >
   This week we will be completing your web map by adding data onto the custom
   base map we created.
@@ -24,7 +24,7 @@ Move the `c183-webmap.zip` file somewhere you'll be able to find it, and then un
 
 Now we need to open our files.
 
-Go to Visual Studio Code (or download it here <a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener noreferrer">[https://code.visualstudio.com/Download](https://code.visualstudio.com/Download)</a> if you're using your laptop and it's not already downloaded)
+Go to Visual Studio Code (or download it here [<a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener noreferrer">https://code.visualstudio.com/Download</a>](https://code.visualstudio.com/Download) if you're using your laptop and it's not already downloaded)
 
 Select Open Folder, and then select the folder you have just downloaded (called BAHA-Map or similar).&#x20;
 
@@ -195,7 +195,7 @@ Pop-Ups are the trickiest thing we'll do and there are a lot of moving parts - t
 Thankfully, like markers, Mapbox GL JS provides us with a pre-made pop-up option, which we can just amend.
 
 <Callout kind="tip" collapsed="false">
-  For more information on mapbox popups see: <a href="https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup" target="_blank" rel="noopener noreferrer">[https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup](https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup)</a>
+  For more information on mapbox popups see: [<a href="https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup" target="_blank" rel="noopener noreferrer">https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup</a>](https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup)
 </Callout>
 
 ### Create an "On Click" event, inside your "On Load" event.
@@ -298,8 +298,6 @@ const popupContent = `
 ```
 
 Let's break it down.&#x20;
-
-
 
 <Steps>
   <Step title="This is HTML inside JS" icon="parentheses" title-type="p">
@@ -423,8 +421,6 @@ Reload the `index.html` page in the web browser and test it out!
 
 <Callout kind="danger" collapsed="false">
   If your pop-up is coming up from the bottom, you'll need to add the following code into you `<head>` tag in index.html, then save and reload: `<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css'>`
-
-
 </Callout>
 
 ### 🎁 Easter Egg: Add a Heading
@@ -478,7 +474,7 @@ See if you can figure out how to do this on your own - and call me over if you g
 
 This is the final code, without the easter eggs, if you get stuck.
 
-<CodeGroup default-tab="2" show-lines="true" tabs={["index.html","style.css","script.js"]}>
+<CodeGroup default-tab="1" show-lines="true" tabs={["index.html","style.css","script.js"]}>
   ```html index.html
   <!DOCTYPE html>
       <html lang="en">
