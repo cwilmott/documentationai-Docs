@@ -152,10 +152,6 @@
         "icon": "code-square",
         "pages": [
           {
-            "title": "interactivity",
-            "path": "interactivity"
-          },
-          {
             "title": "Tech Ethos",
             "path": "technical-ethos",
             "icon": "plug-zap"
@@ -218,8 +214,8 @@
                     "path": "custom-web-maps"
                   },
                   {
-                    "title": "Interactivity + Pop-ups",
-                    "path": "interactivity-pop-ups"
+                    "title": "Interactivity and Pop-Ups",
+                    "path": "interactivity"
                   }
                 ],
                 "icon": "globe"
