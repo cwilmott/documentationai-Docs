@@ -152,6 +152,10 @@
         "icon": "code-square",
         "pages": [
           {
+            "title": "interactivity",
+            "path": "interactivity"
+          },
+          {
             "title": "Tech Ethos",
             "path": "technical-ethos",
             "icon": "plug-zap"

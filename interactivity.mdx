@@ -1,0 +1,564 @@
+---
+title: Interactivity + Popups
+description: >
+  This week we will be completing your web map by adding data onto the custom
+  base map we created.
+---
+## Set Up Your Development Environment
+
+First, we need to get our code back from our Github Repository onto our laptops for editing. This is called setting up a Development Environment. Ours will not be complicated - we are simply going to download the files, and reupload them once we are done, and use a browser to test the `index.html` file.
+
+<Callout kind="tip" collapsed="false">
+  If you're a wizz at git and interested in the experimental pathways, feel free to set up the site as a git using either Github Desktop or pull straight from the repository
+</Callout>
+
+### Download your code
+
+First, we need to download our code back onto our laptops/computers in visual studio code.
+
+To do this, go to your repository and select **Code**, then **Download Zip**.
+
+Move the `c183-webmap.zip` file somewhere you'll be able to find it, and then unzip (double click for MacOSX).
+
+### Bring it into Visual Studio Code
+
+Now we need to open our files.
+
+Go to Visual Studio Code (or download it here [<a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener noreferrer">https://code.visualstudio.com/Download</a>](https://code.visualstudio.com/Download) if you're using your laptop and it's not already downloaded)
+
+Select Open Folder, and then select the folder you have just downloaded (called BAHA-Map or similar).&#x20;
+
+<Image src="https://blob-cdn.documentation.ai/org-6332b605-3e6a-4ce1-a00b-8a907a798c06/doc-12cb6eab-9bd9-48e3-96d6-1b96ec509835/1777826601478-8kalzggqnbc-open-folder.png?fm=auto&auto=compress%2Cformat" width="1680" height="1050" alt="" />
+
+All three of your files - `index.html`, `style.css` and `script.js` should be there, alongside your `/data` folder.
+
+<Callout kind="info" collapsed="false">
+  Your `index.html` file will look different to the one on Code Pen - this is because when you downloaded your code pen files, it automatically linked your `style.css` and `script.js` files into your index.html as it packaged them. It needs to do this so you html knows where to find your style and your javascript!
+</Callout>
+
+### Check it still works!
+
+On your desktop, locate your index.html file and drag it into a browser - you should see your map (as long as you're on the internet!).
+
+DO NOT CLOSE THIS BROWSER WINDOW - we will be using this to test the updates to your map when we add your markers and such.
+
+## Create an On\_Load function
+
+Before we add our markers and pop-ups, we need to make sure our markers don't load before our map. So, we are going to create an on('load') function using **javascript** for our map. This will be a wrapper for all of our markers (and pop-ups) which will go inside the function.
+
+It's made up of several parts.
+
+```javascript
+map.on('load', function() {
+});
+```
+
+Take a careful look: what is happening here is that when the map object (i.e. `map`) has an event (`on`) where it has loaded (`load`) then, run these pieces of code `function() {}`
+
+You can see there are lots of syntax also nested in there - you have to be careful - make sure every bracket and parenthesis has a pair, and pay attention to the semi-colons going forward!
+
+Now, copy and paste the function into your `script.js` file under your `const map`.
+
+Your code should look something like this:
+
+```javascript
+mapboxgl.accessToken = '[access_token]';
+const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0',
+        center: [-122.27, 37.8], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 9 // starting zoom
+    });
+
+map.on('load', function() {
+
+});
+```
+
+## Add Markers
+
+Now, we are going to add our markers *inside* our **load function**. To do this, we have to do two things:&#x20;
+
+1. Make a link to our geojson data&#x20;
+
+2. Add it as a marker (or symbol) layer to our webmap
+
+### Add Source Data
+
+Adding source data is relatively easy. But first, we need to locate our source data!
+
+As I noted yesterday, there are two ways of creating links using code:  a **relative path** and an **abosolute path**\*\*\*. \*\*\* In this case, the relative path to your data source would be: data/yourdata.geojson (i.e. it's in the data folder, with your geojson). *In most cases for web development, this is what is recommended because it contains all the links in the same structure of the program and makes it easy to move*.
+
+But today, I want to make sure it works, so I'm going to recommend we do an **absolute path** to the location of your raw data on the internet - in a large part because I've seen your repositories and they're all over the shop with naming and structure, and also because I want you to learn to connect your data to external sources.
+
+So,&#x20;
+
+1. &#x20;I want you to go to your **Github repository**,&#x20;
+
+2. &#x20;I want you to select your **183data.geojson** file, and;
+
+3. Select **raw**. The link in the address bar is what you will need.
+
+Now, I want you to look at this piece of code:
+
+```javascript
+map.addSource('points-data', {
+        type: 'geojson',
+        data: 'thefullwebaddressofyourdata.geojson'
+    });
+```
+
+Can you see what is happening here? If what you think is happening is that we are adding a source (`addSource`) to the map (`map`), called **'points-data'**, which has the type 'geojson', and a link to the data - you are correct. 🔥🔥🔥
+
+Now, see if you can paste the code **inside the Load Function** and then replace the address of the data with the address of YOUR data. (and don't worry, you won't see anything change, because we haven't added our markers).
+
+If it looks something like this, you're doing great! AND PAY ATTENTION TO THAT SYNTAX!
+
+```javascript
+map.on('load', function() {
+    map.addSource('points-data', {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/cwilmott/c183-webmap/refs/heads/main/data/183-data.geojson'
+    });
+});
+```
+
+Nice! 🦖
+
+<Callout kind="alert" collapsed="false">
+  You'll notice on the Mapbox documentation that a lot of the examples have the geoJSON code in the html, or directly in the javascript. This is one way to do it, but it takes far far longer to render for large datasets and is not as dynamic.
+</Callout>
+
+### Add Your Markers
+
+Okay, now we have added our source (addSource), we need to create a marker layer (addLayer) which puts a marker at each point in your data.
+
+Mapbox has some handy configurations available which means we don't need to do the work of creating our own markers (right now at least!). I've coded up a basic **circle** marker like this:
+
+```javascript
+map.addLayer({
+        id: 'points-layer',
+        type: 'circle',
+        source: 'points-data',
+        paint: {
+            'circle-color': '#4264FB',
+            'circle-radius': 6,
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#ffffff'
+        }
+    });
+```
+
+We chatted in lecture about the different elements of the marker - note the source data! That's important.
+
+Copy and paste the above code into your **Load Function** *under* your addSource function. Order matters! If the data hasn't loaded, how will the markers know where to go!
+
+Your code should now look something like this:
+
+```javascript
+mapboxgl.accessToken = '[Access_Token]';
+const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0',
+        center: [-122.27, 37.8], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 9 // starting zoom
+    });
+
+map.on('load', function() {
+    map.addSource('points-data', {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/cwilmott/c183-webmap/refs/heads/main/data/183-data.geojson'
+    });
+
+    map.addLayer({
+        id: 'points-layer',
+        type: 'circle',
+        source: 'points-data',
+        paint: {
+            'circle-color': '#4264FB',
+            'circle-radius': 6,
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#ffffff'
+        }
+    });
+});
+```
+
+Check it has worked by refreshing your `index.html` page in the browser. If it does, proceed! 🎉
+
+## Add Pop-Ups
+
+Pop-Ups are the trickiest thing we'll do and there are a lot of moving parts - this is why we discussed it so much in lecture! You need to be careful, take note of the syntax, debug or go back a few steps - and pay attention to the little alerts that pop up in VS Code.
+
+**Error is not a failure in coding** **- it's a part of the process**. I'm not going to even tell you how many error warnings I got learning to code.
+
+Thankfully, like markers, Mapbox GL JS provides us with a pre-made pop-up option, which we can just amend.
+
+<Callout kind="tip" collapsed="false">
+  For more information on mapbox popups see: [<a href="https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup" target="_blank" rel="noopener noreferrer">https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup</a>](https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup)
+</Callout>
+
+### Create an "On Click" event, inside your "On Load" event.
+
+First, we don't want pop-ups all the time, we only want them when we click. So we need to create an **on click** event *inside* our Load Event. It looks very much the same:
+
+```javascript
+ map.on('click', 'points-layer', (e) => {
+
+    });
+```
+
+<Callout kind="info" collapsed="false">
+  The (e) is an event function in javascript which asks the Mapbox GL JS to return the point of the spot that was clicked, so it can find the coordinates and the marker with the information for the pop-ups.
+</Callout>
+
+Copy and paste the code inside your on load event. Your `script.js` so far should look a little like this:
+
+```javascript
+mapboxgl.accessToken = '[access_token]';
+const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0',
+        center: [-122.27, 37.8], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+        zoom: 9 // starting zoom
+    });
+
+map.on('load', function() {
+    map.addSource('points-data', {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/cwilmott/c183-webmap/refs/heads/main/data/183-data.geojson'
+    });
+
+    map.addLayer({
+        id: 'points-layer',
+        type: 'circle',
+        source: 'points-data',
+        paint: {
+            'circle-color': '#4264FB',
+            'circle-radius': 6,
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#ffffff'
+        }
+    });
+
+    // Add click event for popups
+    map.on('click', 'points-layer', (e) => {
+
+    });
+
+});
+```
+
+### Get the coordinates of where you have clicked
+
+Next, we have to actually get the coordinates of where you have clicked, so it can be matched to your geojson data, so it knows which information to pull!
+
+To do this, we create two constants using the event object (e) - one for the **coordinates&#x20;**&#x74;o find the cartographic coordinates, one for **properties&#x20;**&#x74;o find the attribute data of the features.
+
+```javascript
+      const coordinates = e.features[0].geometry.coordinates.slice();
+      const properties = e.features[0].properties;
+```
+
+Copy and paste these **inside your on click event** like this:
+
+```javascript
+// Add click event for popups
+    map.on('click', 'points-layer', (e) => {
+          const coordinates = e.features[0].geometry.coordinates.slice();
+            const properties = e.features[0].properties;
+
+    });
+```
+
+<Callout kind="tip" collapsed="false">
+  **Make your code pretty again!**\
+  At this point, your code will be getting kind of messy. You can make it formatted again by selecting the keyboard shortcut **Ctrl+Shift+I&#x20;**(Windows/Linux) or **Cmd+Shift+I&#x20;**(macOS). It'll direct you to the command palette at the top - just write "Format Document" and press enter.
+</Callout>
+
+### Design Your Pop-Up
+
+Now we've retrieved the coordinates, and told the javascript where to find the propertes, we need to actually tell our popup what we want it to display using the actual properties from the data. We do this by creating a new constant `const popupContent`, which is a mix of html and javascript.
+
+This is the code for my data:
+
+```javascript
+const popupContent = `
+    <div>
+        <h3>${properties.site_title}</h3>
+        <p><strong>${properties.park_name}</strong></p>
+        ${properties.image ? 
+           `<img src="${properties.image}" alt="${properties.site_title}" style="width:100%; border-radius:5px; margin-bottom:10px;">`
+           : ''
+        }
+        <p>Image Caption: ${properties.caption}</p>
+        <p>${properties.description}</p>
+    </div>
+`;
+```
+
+Let's break it down.&#x20;
+
+<Steps>
+  <Step title="This is HTML inside JS" icon="parentheses" title-type="p">
+    The whole piece of code is a bit of HTML hidden *inside* some Javascript using these tags: \`\`
+  </Step>
+
+  <Step title="The HTML is a div tag" icon="code" title-type="p">
+    So, \<div>\</div> sits inside the Javascript as a division which describes what the html styling of the pop up should be
+  </Step>
+
+  <Step title="Each element is styled inside the div" icon="list" title-type="p">
+    So, \<div>\</div> sits inside the Javascript as a division which describes what the html styling of the pop up should be.
+  </Step>
+
+  <Step title="Site Name" icon="lucide-heading3" title-type="p">
+    A **\<h3> header** with the Site Name
+  </Step>
+
+  <Step title="Park Name" icon="bold" title-type="p">
+    A bold **\<p>\<strong>\</strong>\</p> paragraph**  with the park name
+  </Step>
+
+  <Step title="Image" icon="book-image" title-type="p">
+    A&#x6E;**&#x20;\<img> image** whose **src** (or image location) is called from the geoJSON properties, uses **alt** (alt text) uses the site title, and whose **style&#x20;**&#x69;s 100% width of the popup, and has a 5px border and a margin of 10px at the bottom
+  </Step>
+
+  <Step title="Image Caption" icon="captions" title-type="p">
+    A **\<p> paragraph** for the Image Caption, with the preamble 'Image Caption:' before the properties.caption&#x20;
+  </Step>
+
+  <Step title="Site Description" icon="letter-text" title-type="p">
+    And a **\<p> paragraph** description of the site.&#x20;
+  </Step>
+</Steps>
+
+Let's look closely at how the properties information is brought in from the geoJSON file.
+
+You'll see a repetition of this code structure: `properties.xxxx `
+
+```html
+<h3>${properties.site_title}</h3>
+```
+
+For instance, in the above, the structure is `properties.site_title` .&#x20;
+
+The XXX label needs to be the exact same wording/lettering/spacing/capitalization as YOUR data in YOUR geojson that you made. **These "XXX" refer to the names of the columns you created, and are the same as property labels in your raw data. You MUST double check each of these match - computers are not clever, and cannot understand anything other than exact matches.&#x20;**
+
+Once you have double checked this, copy and paste this into your on click function under your coordinate and property constants, so it looks like this:
+
+```javascript
+ map.on('click', 'points-layer', (e) => {
+        // Copy coordinates array
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const properties = e.features[0].properties;
+
+        // Create popup content using the actual data properties
+        const popupContent = `
+            <div>
+                <h3>${properties.Landmark}</h3>
+                <p><strong>Address:</strong> ${properties.Address}</p>
+                <p><strong>Architect & Date:</strong> ${properties.Architect_Date}</p>
+                <p><strong>Designated:</strong> ${properties.Designated}</p>
+                ${properties.Link ? `<p><a href="${properties.Link}" target="_blank">More Information</a></p>` : ''}
+                ${properties.Notes ? `<p><strong>Notes:</strong> ${properties.Notes}</p>` : ''}
+            </div>
+        `;
+
+    });
+```
+
+<Callout kind="alert" collapsed="false">
+  *If your properties headers are not the same, change the code in your popup, not the headers in your geojson*. If you're confused, come and grab us!
+</Callout>
+
+<Callout kind="success" collapsed="false">
+  If you're experienced at coding, you're welcome to try to style them however you'd like.
+</Callout>
+
+### Add it to your map
+
+Now, finally, we need to add the pop-up to the map at the location we have clicked. To do this, we can actually use a Mapbox GL JS framework which provided to us through the API: `mapboxgl.Popup()`
+
+The code is simple: we create a new popup, set the x,y to the `coordinates` we collected above from the click, set the content of the popup to the `const popupContent` we created above, and add it to the map.
+
+```javascript
+new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(popupContent)
+            .addTo(map);
+```
+
+Like before, we just add it to our **on click** event so it looks like this:
+
+```javascript
+// Add click event for popups
+    map.on('click', 'points-layer', (e) => {
+        // Copy coordinates array
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const properties = e.features[0].properties;
+
+        // Create popup content using the actual data properties
+        const popupContent = `
+            <div>
+                <h3>${properties.Landmark}</h3>
+                <p><strong>Address:</strong> ${properties.Address}</p>
+                <p><strong>Architect & Date:</strong> ${properties.Architect_Date}</p>
+                <p><strong>Designated:</strong> ${properties.Designated}</p>
+                ${properties.Link ? `<p><a href="${properties.Link}" target="_blank">More Information</a></p>` : ''}
+                ${properties.Notes ? `<p><strong>Notes:</strong> ${properties.Notes}</p>` : ''}
+            </div>
+        `;
+
+        new mapboxgl.Popup()
+            .setLngLat(coordinates)
+            .setHTML(popupContent)
+            .addTo(map);
+    });
+```
+
+Reload the `index.html` page in the web browser and test it out!
+
+<Callout kind="danger" collapsed="false">
+  If your pop-up is coming up from the bottom, you'll need to add the following code into you `<head>` tag in index.html, then save and reload: `<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css'>`
+</Callout>
+
+### 🎁 Easter Egg: Add a Heading
+
+If you'd like to add a heading - here is some code to play with.
+
+In your HTML `<body>:`
+
+```html
+<h1> Heritage Map of Berkeley</h1>
+```
+
+And in your `style.css:`
+
+```css
+h1 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 20px;
+    margin: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    color: #333;
+}
+```
+
+Save both files, and reload `index.html` to make sure its worked! See if you can figure out how to change it!
+
+## Upload to Github
+
+Now, back to reality. We are ready to re-upload our code.
+
+<Callout kind="info" collapsed="false">
+  If you have not added anything to your HTML or CSS, you can just copy and paste the code in your `script.js` file
+</Callout>
+
+There are two ways of doing this.&#x20;
+
+1. The first way, involves deleting your files and uploading the new ones.
+
+2. The second, cheaty way - which I recommend - is to *edit your Github files*, by deleting the current code, and copying and pasting the code from VS Studio into Github directly.
+
+See if you can figure out how to do this on your own - and call me over if you get stuck!
+
+## The Final Code (if you get stuck)
+
+This is the final code, without the easter eggs, if you get stuck.
+
+<CodeGroup default-tab="1" show-lines="true" tabs={["index.html","style.css","script.js"]}>
+  ```html index.html
+  <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mapbox GL JS map</title>
+        <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.css'>
+        <link rel="stylesheet" href="./style.css">
+      </head>
+      <body>
+            <div id="map"></div>
+            <script src='https://api.mapbox.com/mapbox-gl-js/v3.15.0/mapbox-gl.js'></script><script  src="./script.js"></script>
+      </body>
+      </html>
+  ```
+
+  ```css style.css
+  body { margin: 0; padding: 0; }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+  ```
+
+  ```javascript script.js
+  mapboxgl.accessToken = '[access_token]';
+    const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/cwilmott/cmg5px11u00ef01sm3fr65ro0',
+            center: [-122.27, 37.8], // starting position [lng, lat]. Note that lat must be set between -90 and 90
+            zoom: 9 // starting zoom
+        });
+
+    map.on('load', function() {
+        map.addSource('points-data', {
+              type: 'geojson',
+              data: 'https://raw.githubusercontent.com/cwilmott/c183-webmap/refs/heads/main/data/183-data.geojson'
+        });
+
+       map.addLayer({
+          id: 'points-layer',
+          type: 'circle',
+          source: 'points-data',
+          paint: {
+                'circle-color': '#4264FB',
+                'circle-radius': 6,
+                'circle-stroke-width': 2,
+                'circle-stroke-color': '#ffffff'
+            }
+        });
+
+        // This is the click event for popUps
+        map.on('click', 'points-layer', (e) => {
+            // Get coordinates/geometry
+            const coordinates = e.features[0].geometry.coordinates.slice();
+            const properties = e.features[0].properties;
+
+            // Create popup content using the actual data properties
+          const popupContent = `
+              <div>
+                  <h3>${properties.Landmark}</h3>
+                  <p><strong>Address:</strong> ${properties.Address}</p>
+                  <p><strong>Architect & Date:</strong> ${properties.Architect_Date}</p>
+                  <p><strong>Designated:</strong> ${properties.Designated}</p>
+                  ${properties.Link ? `<p><a href="${properties.Link}" target="_blank">More Information</a></p>` : ''}
+                  ${properties.Notes ? `<p><strong>Notes:</strong> ${properties.Notes}</p>` : ''}
+              </div>
+          `;
+
+          // Build and attach popup to coordinates
+            new mapboxgl.Popup()
+                .setLngLat(coordinates)
+                .setHTML(popupContent)
+                .addTo(map);
+        });
+
+        // Change cursor to pointer when hovering over points
+        map.on('mouseenter', 'points-layer', () => {
+                map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change cursor back when leaving points
+        map.on('mouseleave', 'points-layer', () => {
+              map.getCanvas().style.cursor = '';
+        });       
+    });
+  ```
+</CodeGroup>
+
