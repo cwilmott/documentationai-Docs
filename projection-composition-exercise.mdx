@@ -12,17 +12,100 @@ Start by downloading, and filling out this worksheet based on your data decision
   This worksheet helps you think about what elements you need for your print map.
 </Card>
 
-## Projection
+For this tutorial, I'd like you to have:
 
-One of the biggest flaws of ArcGIS online is that you can't change the map projection easily. If you are doing this, it is far far better to do it on ArcGIS Pro or ArcGIS Online.
+- An inset
 
-For these maps, you do not need to change the projection because the scale is so large it barely makes a difference. However, if you were making a map of *all* the parks, for instance, you would need to use a projection which adequately captures California.&#x20;
+- At least 4 of the Cartographic Features on the second page
 
-If you would like to change your projection using ArcGIS Online, this video shows you how to do it.
+## Make a Plan
 
-<Card title="Changing Projection in ArcGIS Online" href="https://www.youtube.com/watch?v=417qXZ2_Mtc" icon="lucide-map" cta="Click here for the tutorial" horizontal="false" target="_self">
-  This tutorial shows you how to change the map projection in ArcGIS Online from Web Mercator to the National Projection of Canada.&#x20;
+Now that we know what needs to go on the map (don't worry - this can change later), we need to figure out generally where it will all go and, more importantly, **what needs to be done in GIS, and what can be done in Illustrator**. 
+
+Often, throughout a career as a cartographer, this is trial and error, finding new tools and new workflows - methods which can only be gained through experience.*&#x20;It is not unusual to get it wrong and to then have to start again - this is part of the process, an error, not a failure*. 
+
+But, since you probably haven't done this before, I'll give you a quick overview of my preferences - workflow is one of the most hotly debated topics in professional cartography, and everyone disagrees (and in time, you may too). 
+
+| **Feature**            | GIS                   | Illustrator | Best Option                            |
+| ---------------------- | --------------------- | ----------- | -------------------------------------- |
+| Page Size              | Only ArcGIS Pro, QGIS | Yes         | Illustrator                            |
+| Orientation            | Only ArcGIS Pro, QGIS | Yes         | Illustrator (unless complex labelling) |
+| Perspective            | Only ArcGIS Pro, QGIS | Yes         | GIS                                    |
+| Insets                 | Only ArcGIS Pro, QGIS | Yes         | Illustrator                            |
+| Context                | No                    | Yes         | Illustrator                            |
+| Title and Description  | Yes                   | Yes         | Illustrator                            |
+| Legend or Key          | Yes                   | Yes         | Combined workflow                      |
+| Scale Bar              | Yes                   | Yes         | GIS                                    |
+| Orientation arrow      | Yes                   | Yes         | Combined workflow                      |
+| Labels and LeaderLines | Yes                   | Yes         | It depends                             |
+| Neatline               | Yes                   | Yes         | Illustrator                            |
+| Graticules             | Yes                   | Sort-of     | GIS                                    |
+
+You can see from this list that you can do almost anything in each software - the question is which is the easiest and the most accurate for what you want to do.&#x20;
+
+The main difference is that in GIS you have a coordinate geometry which ties everything together from scale bars to labels, and in Illustrator, you lose that coordinate geometry, but you gain the freedom to move features around, exaggerate or displace them.&#x20;
+
+This means that in general, GIS is useful for mathematically heavy tasks and tasks where the consistency of geometry is important - and getting this foundation right, so it can be edited later in Illustrator. This includes tasks like:
+
+- Choosing a projection
+
+- Choosing a perspective
+
+- Getting the correct scale for your scale bar
+
+- Laying down graticules
+
+- Getting your labels linked to the right points with leader lines to move them later
+
+- Making sure your north arrow actually points north
+
+- Getting the basics of your data addition, analysis and style  in the right location
+
+These things are what we are going to be focusing on today. 
+
+<Callout kind="danger" collapsed="false">
+  Compared to ArcGIS Pro or QGIS, ArcGIS Online offers limited support for bespoke projections and perspectives. I am aware of this, and have taken it into account for the design of the Print Map Assessment.&#x20;
+</Callout>
+
+## Cartographic Layout in GIS
+
+Depending on how you've filled out the sheet, and what elements you'd like to include - here is how to do the parts in GIS that need to be done.&#x20;
+
+### Projection + Perspective
+
+One of the biggest flaws of ArcGIS online is that you can't change the map projection and perspective easily. If you are doing this, it is far far better to do it on ArcGIS Pro or ArcGIS Online.
+
+For these maps, you probably do not need to change the projection because the scale is so large it barely makes a difference. However, if you were making a map of *all* the parks, for instance, you would need to use a projection which adequately captures California. We will do this, but at the very end for your inset.
+
+In terms of perspective, for this, it may be better to do it via Illustrator (download as an SVG, then shear it - <a href="https://helpx.adobe.com/illustrator/using/tool-techniques/shear-tool.html" target="_blank" rel="noopener noreferrer">https\://helpx.adobe.com/illustrator/using/tool-techniques/shear-tool.html</a>)
+
+### Graticules
+
+Again, this is easier in GIS software, but can still be done via ArcGIS Online. Basically, you use geoprocessing to create a grid layer in ArcPro and then upload it to ArcOnline.&#x20;
+
+Thankfully, NOAA has already made a webserver for us to use:
+
+<Card title="Graticule ArcServer" href="https://www.arcgis.com/home/item.html?id=503cc3f56e814c4384b9dcd9ef6ee697" icon="grid" cta="Find server here" horizontal="false" target="_self">
+  You can find NOAA's graticle Arc REST server here.
 </Card>
+
+To use this:
+
+1. Click on the link
+
+2. Click on the degree layer you'd like.&#x20;
+
+3. Once you're on the Arc REST Services directory, copy and paste the web address.
+
+4. Go back to your map on ArcGIS Online
+
+5. On your basemap layer, click Add Layer -> Add Layer from URL
+
+6. Copy and paste the URL
+
+7. If it's correct, the Type of Layer field will auto set to ArcGIS Web Server
+
+8. Then hit Next.
 
 ## Style Your Data
 
@@ -74,6 +157,10 @@ My advice is to just play around with the styling options to see what they can d
   The official guide on styling your geographic data using ArcGIS online
 </Card>
 
+### Legend
+
+ArcGIS Online has a legend tool if you need to display complex information.
+
 ### Labelling
 
 No-one I have ever met loves doing labelling on GIS software. You *can* mess around with the label feature layers by changing fonts.
@@ -98,7 +185,7 @@ The next stage is to download your map.
   </Step>
 
   <Step title="Add Elements" title-type="p">
-    In **Advanced Options** you can choose to add elements such as a scale bar or a north arrow. These are useful to keep the direction and scale so you can rescale later in Illustrator.
+    In **Advanced Options** you can choose to add elements such as a scale bar or a north arrow.&#x20;
   </Step>
 
   <Step title="Export" title-type="p">
@@ -109,6 +196,34 @@ The next stage is to download your map.
     Save your .svg folder, alongside your completed form on your Google Drive for submission.
   </Step>
 </Steps>
+
+## Make an Inset Map
+
+An inset map is useful for giving spatial context across multiple scales. For our inset map, we will use a map of California to show where your site is.
+
+### Projection
+
+ArcGIS Online uses web mercator, which distorts the shape and size of the state. The California State Government's standard projection is California Albers (EPSG:3310 / NAD83). There are two main ways in which cartographers change projection:
+
+- The first is th&#x65;**&#xA0;cheats way** which only works for **print base maps without data** - you take a screenshot on a mapping tool like the ones in the lecture, and trace it using Illustrator or Photoshop.
+
+- The second is to use either **ArcGIS Pro** on your Windows computer, or **QGIS** on your Mac. See Sections 6 and 7 of the QGIS User Manual here: [<a href="https://docs.qgis.org/3.44/en/docs/user_manual/working_with_projections/working_with_projections.html" target="_blank" rel="noopener noreferrer">https://docs.qgis.org/3.44/en/docs/user\_manual/working\_with\_projections/working\_with\_projections.html</a>](https://docs.qgis.org/3.44/en/docs/user_manual/working_with_projections/working_with_projections.html)
+
+But neither of these will work for us. The first one risks losing the scale and geometric relationality of the map, and we don't have access to the tools for the second one.&#x20;
+
+Luckily, enough people complained to ESRI and they came up with this workaround that we will follow:
+
+<Card title="Changing Projection in ArcGIS Online" href="https://www.youtube.com/watch?v=417qXZ2_Mtc" icon="lucide-map" cta="Click here for the tutorial" horizontal="false" target="_self">
+  This tutorial shows you how to change the map projection in ArcGIS Online from Web Mercator to the National Projection of Canada.&#x20;
+</Card>
+
+But rather than Canada, we are focusing on California, and so need to find an example of an EPSG:3310 projection on an ArcGIS Rest Server that we can use. So you don't spend too much time in the depths of the State GIS servers, I've found one here from the Geological survey you can use.
+
+<a href="https://gis.conservation.ca.gov/server/rest/services/CGS/Geologic_Map_of_California/MapServer" target="_blank" rel="noopener noreferrer">https\://gis.conservation.ca.gov/server/rest/services/CGS/Geologic\_Map\_of\_California/MapServer</a>
+
+Once you have changed your projection, you'll need to style it again to make the information on it what you would like.&#x20;
+
+Then, once you've done that **export as an SVG&#x20;**&#x61;gain, and put both SVGs in a folder for your assessment submission. Tomorrow, we'll bring them into Illustrator.
 
 <Card title="Assessment Submission" href="https://forms.gle/3kAqCZx2Aq4kRXrQ6" icon="upload-icon" cta="Upload your assessment here" horizontal="false" target="_self">
   Choose XXXX from the multiple choice drop down menu.
