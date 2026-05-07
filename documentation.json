@@ -258,6 +258,16 @@
             "title": "Print Map",
             "path": "print-map",
             "icon": "lucide-printer"
+          },
+          {
+            "title": "Web Map",
+            "path": "web-map",
+            "icon": "globe"
+          },
+          {
+            "title": "Final Project",
+            "path": "final-project",
+            "icon": "map"
           }
         ],
         "icon": "graduation-cap"
