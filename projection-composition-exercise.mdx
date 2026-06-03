@@ -77,7 +77,7 @@ One of the biggest flaws of ArcGIS online is that you can't change the map proje
 
 For these maps, you probably do not need to change the projection because the scale is so large it barely makes a difference. However, if you were making a map of *all* the parks, for instance, you would need to use a projection which adequately captures California. We will do this, but at the very end for your inset.
 
-In terms of perspective, for this, it may be better to do it via Illustrator (download as an SVG, then shear it - <a href="https://helpx.adobe.com/illustrator/using/tool-techniques/shear-tool.html" target="_blank" rel="noopener noreferrer">https\://helpx.adobe.com/illustrator/using/tool-techniques/shear-tool.html</a>)
+In terms of perspective, for this, it may be better to do it via Illustrator (download as an SVG, then shear it - [<a href="https://helpx.adobe.com/illustrator/using/tool-techniques/shear-tool.html" target="_blank" rel="noopener noreferrer">https://helpx.adobe.com/illustrator/using/tool-techniques/shear-tool.html</a>](https://helpx.adobe.com/illustrator/using/tool-techniques/shear-tool.html))
 
 ### Graticules
 
@@ -207,7 +207,7 @@ ArcGIS Online uses web mercator, which distorts the shape and size of the state.
 
 - The first is th&#x65;**&#xA0;cheats way** which only works for **print base maps without data** - you take a screenshot on a mapping tool like the ones in the lecture, and trace it using Illustrator or Photoshop.
 
-- The second is to use either **ArcGIS Pro** on your Windows computer, or **QGIS** on your Mac. See Sections 6 and 7 of the QGIS User Manual here: [<a href="https://docs.qgis.org/3.44/en/docs/user_manual/working_with_projections/working_with_projections.html" target="_blank" rel="noopener noreferrer">https://docs.qgis.org/3.44/en/docs/user\_manual/working\_with\_projections/working\_with\_projections.html</a>](https://docs.qgis.org/3.44/en/docs/user_manual/working_with_projections/working_with_projections.html)
+- The second is to use either **ArcGIS Pro** on your Windows computer, or **QGIS** on your Mac. See Sections 6 and 7 of the QGIS User Manual here: <a href="https://docs.qgis.org/3.44/en/docs/user_manual/working_with_projections/working_with_projections.html" target="_blank" rel="noopener noreferrer">[https://docs.qgis.org/3.44/en/docs/user\_manual/working\_with\_projections/working\_with\_projections.html](https://docs.qgis.org/3.44/en/docs/user_manual/working_with_projections/working_with_projections.html)</a>
 
 But neither of these will work for us. The first one risks losing the scale and geometric relationality of the map, and we don't have access to the tools for the second one.&#x20;
 
@@ -219,13 +219,13 @@ Luckily, enough people complained to ESRI and they came up with this workaround 
 
 But rather than Canada, we are focusing on California, and so need to find an example of an EPSG:3310 projection on an ArcGIS Rest Server that we can use. So you don't spend too much time in the depths of the State GIS servers, I've found one here from the Geological survey you can use.
 
-<a href="https://gis.conservation.ca.gov/server/rest/services/CGS/Geologic_Map_of_California/MapServer" target="_blank" rel="noopener noreferrer">https\://gis.conservation.ca.gov/server/rest/services/CGS/Geologic\_Map\_of\_California/MapServer</a>
+[<a href="https://gis.conservation.ca.gov/server/rest/services/CGS/Geologic_Map_of_California/MapServer" target="_blank" rel="noopener noreferrer">https://gis.conservation.ca.gov/server/rest/services/CGS/Geologic\_Map\_of\_California/MapServer</a>](https://gis.conservation.ca.gov/server/rest/services/CGS/Geologic_Map_of_California/MapServer)
 
 Once you have changed your projection, you'll need to style it again to make the information on it what you would like.&#x20;
 
 Then, once you've done that **export as an SVG&#x20;**&#x61;gain, and put both SVGs in a folder for your assessment submission. Tomorrow, we'll bring them into Illustrator.
 
 <Card title="Assessment Submission" href="https://forms.gle/3kAqCZx2Aq4kRXrQ6" icon="upload-icon" cta="Upload your assessment here" horizontal="false" target="_self">
-  Choose XXXX from the multiple choice drop down menu.
+  Choose Projection + Composition from the multiple choice drop down menu.
 </Card>
 
