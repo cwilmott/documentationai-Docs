@@ -18,13 +18,13 @@ First, we need to download our code back onto our laptops/computers in visual st
 
 To do this, go to your repository and select **Code**, then **Download Zip**.
 
-Move the `c183-webmap.zip` file somewhere you'll be able to find it, and then unzip (double click for MacOSX).
+Move the `webmap.zip` file somewhere you'll be able to find it, and then unzip (double click for MacOSX).
 
 ### Bring it into Visual Studio Code
 
 Now we need to open our files.
 
-Go to Visual Studio Code (or download it here <a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener noreferrer">[https://code.visualstudio.com/Download](https://code.visualstudio.com/Download)</a> if you're using your laptop and it's not already downloaded)
+Go to Visual Studio Code (or download it here [<a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener noreferrer">https://code.visualstudio.com/Download</a>](https://code.visualstudio.com/Download) if you're using your laptop and it's not already downloaded)
 
 Select Open Folder, and then select the folder you have just downloaded (called BAHA-Map or similar).&#x20;
 
@@ -95,7 +95,7 @@ So,&#x20;
 
 1. &#x20;I want you to go to your **Github repository**,&#x20;
 
-2. &#x20;I want you to select your **183data.geojson** file, and;
+2. &#x20;I want you to select your **data.geojson** file, and;
 
 3. Select **raw**. The link in the address bar is what you will need.
 
@@ -118,7 +118,7 @@ If it looks something like this, you're doing great! AND PAY ATTENTION TO THAT S
 map.on('load', function() {
     map.addSource('points-data', {
         type: 'geojson',
-        data: 'https://raw.githubusercontent.com/cwilmott/c183-webmap/refs/heads/main/data/183-data.geojson'
+        data: 'https://raw.githubusercontent.com/cwilmott/webmap/refs/heads/main/data/data.geojson'
     });
 });
 ```
@@ -167,7 +167,7 @@ const map = new mapboxgl.Map({
 map.on('load', function() {
     map.addSource('points-data', {
         type: 'geojson',
-        data: 'https://raw.githubusercontent.com/cwilmott/c183-webmap/refs/heads/main/data/183-data.geojson'
+        data: 'https://raw.githubusercontent.com/cwilmott/webmap/refs/heads/main/data/data.geojson'
     });
 
     map.addLayer({
@@ -195,7 +195,7 @@ Pop-Ups are the trickiest thing we'll do and there are a lot of moving parts - t
 Thankfully, like markers, Mapbox GL JS provides us with a pre-made pop-up option, which we can just amend.
 
 <Callout kind="tip" collapsed="false">
-  For more information on mapbox popups see: <a href="https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup" target="_blank" rel="noopener noreferrer">[https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup](https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup)</a>
+  For more information on mapbox popups see: [<a href="https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup" target="_blank" rel="noopener noreferrer">https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup</a>](https://docs.mapbox.com/mapbox-gl-js/api/markers/#popup)
 </Callout>
 
 ### Create an "On Click" event, inside your "On Load" event.
@@ -226,7 +226,7 @@ const map = new mapboxgl.Map({
 map.on('load', function() {
     map.addSource('points-data', {
         type: 'geojson',
-        data: 'https://raw.githubusercontent.com/cwilmott/c183-webmap/refs/heads/main/data/183-data.geojson'
+        data: 'https://raw.githubusercontent.com/cwilmott/webmap/refs/heads/main/data/data.geojson'
     });
 
     map.addLayer({
@@ -469,5 +469,3 @@ There are two ways of doing this.&#x20;
 2. The second, cheaty way - which I recommend - is to *edit your Github files*, by deleting the current code, and copying and pasting the code from VS Studio into Github directly.
 
 See if you can figure out how to do this on your own - and call me over if you get stuck!
-
-
